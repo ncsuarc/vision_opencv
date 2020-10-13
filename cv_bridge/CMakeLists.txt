@@ -11,7 +11,7 @@ if(NOT ANDROID)
     find_package(Boost REQUIRED python37)
   else()
     # Ubuntu Focal
-    find_package(Boost REQUIRED python)
+    find_package(Boost REQUIRED COMPONENTS python regex)
   endif()
 else()
 find_package(Boost REQUIRED)
@@ -36,7 +36,7 @@ catkin_package(
   INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS rosconsole sensor_msgs
-  DEPENDS OpenCV
+  DEPENDS OpenCV Boost
   CFG_EXTRAS cv_bridge-extras.cmake
 )
 
